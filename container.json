@@ -1,0 +1,59 @@
+ [
+ {   
+    "name": "keycloak",
+    "image": "jboss/keycloak:latest",
+    "cpu": 0,
+    "portMappings": [
+        {
+            "name": "keycloak-8080-tcp",
+            "containerPort": 8080,
+            "hostPort": 8080,
+            "protocol": "tcp",
+            "appProtocol": "http"
+        }
+    ],
+    "essential": true,
+    "environment": [
+        {
+            "name": "DB_ADDR",
+            "value": "keycloak-db-1.cphg6xxxzy0r.ap-south-1.rds.amazonaws.com"
+        },
+        {
+            "name": "JGROUPS_DISCOVERY_PROTOCOL",
+            "value": "JDBC_PING"
+        },
+        {
+            "name": "KEYCLOAK_PASSWORD",
+            "value": "pass123"
+        },
+        {
+            "name": "DB_VENDOR",
+            "value": "mysql"
+        },
+        {
+            "name": "DB_PORT",
+            "value": "3306"
+        },
+        {
+            "name": "DB_USER",
+            "value": "admin"
+        },
+        {
+            "name": "PROXY_ADDRESS_FORWARDING",
+            "value": "true"
+        },
+        {
+            "name": "KEYCLOAK_USER",
+            "value": "admin"
+        },
+        {
+            "name": "DB_DATABASE",
+            "value": "keycloak"
+        },
+        {
+            "name": "DB_PASSWORD",
+            "value": "pass1234"
+        }
+    ]
+}
+]
